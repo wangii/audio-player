@@ -4,7 +4,7 @@ import styles from "./Speed.module.css";
 export const Speed = ({ onChange, value }) => {
   return (
     <div className={styles.wrapper}>
-        <div style={{color:"white"}}>Playback speed: {value / 50. + 1.}</div>
+        <div style={{color:"white"}}>Playback speed: {value / 50. + .5}</div>
       <input
         type="range"
         min="0"
