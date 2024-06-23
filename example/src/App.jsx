@@ -3,8 +3,8 @@ import Wrapper from "./components/Wrapper";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 
-import Player from "@madzadev/audio-player";
-import "@madzadev/audio-player/dist/index.css";
+import Player from "@wangii/audio-player";
+import "@wangii/audio-player/dist/index.css";
 
 import { PrismLight as SyntaxHighlighter } from "react-syntax-highlighter";
 import { coldarkDark } from "react-syntax-highlighter/dist/esm/styles/prism";
@@ -35,10 +35,13 @@ const tracks = [
 ];
 
 const App = () => {
+  const [pr, setpr] = React.useState(3.);
   return (
     <Wrapper>
+      <button onClick={() => setpr(3.)}>Change Play Rate 3.</button>
+      <button onClick={() => setpr(1.)}>Change Play Rate 1.</button>
       <Header />
-      <Player trackList={tracks} />
+      <Player trackList={tracks} playRate={pr}/>
       <h1 className="title">Installation</h1>
       <SyntaxHighlighter language="bash" style={coldarkDark}>
         {`npm install @madzadev/audio-player`}
@@ -121,6 +124,8 @@ const App = () => {
             bufferLoaded: "#1f212b",
             volumeSlider: "#3e32e4",
             volumeUsed: "#ffffff",
+            speedSlider: "#3e32e4",
+            speedUsed: "#ffffff",
             volumeLeft: "#151616",
             playlistBackground: "#18191f",
             playlistText: "#575a77",

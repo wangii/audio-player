@@ -19,6 +19,7 @@ import { Pause } from "./components/Pause";
 import { Next } from "./components/Next";
 import { Shuffle } from "./components/Shuffle";
 import { Volume } from "./components/Volume";
+import { Speed } from "./components/Speed";
 import { PlaylistTemplate } from "./components/PlaylistTemplate";
 import { PlaylistItem } from "./components/PlaylistItem";
 
@@ -88,6 +89,9 @@ const Player = ({
   const [volume, setVolume] = useState(0.8);
   const [shuffled, setShuffled] = useState(false);
   const [looped, setLooped] = useState(false);
+  const [pr, setPr] = useState(1.);
+
+  // console.log("PlayRate:", playRate);
 
   let playlist = [];
   const [filter, setFilter] = useState([]);
@@ -212,7 +216,6 @@ const Player = ({
         const waitingHandler = () => {
           if (audio.readyState === 4) {
             audio.removeEventListener("waiting", waitingHandler);
-            // console.log("waiting for data");
           }
         };
         audio.addEventListener("waiting", waitingHandler);
@@ -250,7 +253,6 @@ const Player = ({
   }, [filter]);
 
   //  Handle functions
-
   const loop = () => {
     setLooped(!looped);
   };
@@ -309,6 +311,10 @@ const Player = ({
     play();
   };
 
+  if(audio && isPlaying){
+    audio.playbackRate = pr;
+  }
+
   return (
     <PageTemplate>
       {includeTags && (
@@ -335,6 +341,16 @@ const Player = ({
         />
       )}
       <PlayerTemplate>
+        <Speed
+          value={(pr - 1.) * 50}
+          onChange={(e) => {
+            let b = e.target.value / 50. + 1.;
+            if(audio && isPlaying){
+              audio.playbackRate = b;
+            }
+            setPr(b);
+          }}
+        />
         <TitleAndTimeBox>
           <Title title={title} />
           <Time

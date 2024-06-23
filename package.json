@@ -1,7 +1,7 @@
 {
-  "name": "@madzadev/audio-player",
-  "version": "2.1.13",
-  "description": "React/NextJS audio player for your music, with custom controls, playlist, filters, and search functionality.",
+  "name": "@wangii/audio-player",
+  "version": "2.1.14",
+  "description": "React/NextJS audio player for your music, with custom controls, playlist, filters, and search functionality, based on @madza/audio-player.",
   "keywords": [
     "react",
     "nextjs",
@@ -14,11 +14,11 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/madzadev/audio-player.git"
+    "url": "https://github.com/wangii/audio-player.git"
   },
   "homepage": "https://audioplayer.madza.dev/",
   "bugs": {
-    "url": "https://github.com/madzadev/audio-player/issues"
+    "url": "https://github.com/wangii/audio-player/issues"
   },
   "type": "module",
   "files": [
