@@ -2,21 +2,22 @@ import React from "react";
 import styles from "./Speed.module.css";
 
 export const Speed = ({ onChange, value }) => {
+  let dv = (value - .5) * 50;
   return (
     <div className={styles.wrapper}>
-        <div style={{color:"white"}}>Playback speed: {value / 50. + .5}</div>
+        <div style={{color:"white"}}>Playback speed: {value}</div>
       <input
         type="range"
         min="0"
         max="100"
-        defaultValue="0"
+        defaultValue={dv}
         className={styles.slider}
         id="speedRange"
         onChange={onChange}
         style={{
           background: `linear-gradient(90deg, var(--speedUsed) ${
-            value
-          }%, var(--speedLeft) ${100. - value}%)`,
+            dv
+          }%, var(--speedLeft) ${100. - dv}%)`,
         }}
       />
     </div>

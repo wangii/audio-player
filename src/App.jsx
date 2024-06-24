@@ -342,7 +342,7 @@ const Player = ({
       )}
       <PlayerTemplate>
         <Speed
-          value={(pr - .5) * 50}
+          value={pr}
           onChange={(e) => {
             let b = e.target.value / 50. + .5;
             if(audio && isPlaying){
