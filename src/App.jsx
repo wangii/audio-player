@@ -343,8 +343,7 @@ const Player = ({
       <PlayerTemplate>
         <Speed
           value={pr}
-          onChange={(e) => {
-            let b = e.target.value / 50. + .5;
+          onChange={(b) => {
             if(audio && isPlaying){
               audio.playbackRate = b;
             }

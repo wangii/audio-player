@@ -3,6 +3,11 @@ import styles from "./Speed.module.css";
 
 export const Speed = ({ onChange, value }) => {
   let dv = (value - .5) * 50;
+  
+  let handleChange = (e) => {
+    onChange(e.target.value / 50 + .5);
+  };
+
   return (
     <div className={styles.wrapper}>
         <div style={{color:"white"}}>Playback speed: {value}</div>
@@ -13,7 +18,7 @@ export const Speed = ({ onChange, value }) => {
         defaultValue={dv}
         className={styles.slider}
         id="speedRange"
-        onChange={onChange}
+        onChange={handleChange}
         style={{
           background: `linear-gradient(90deg, var(--speedUsed) ${
             dv
