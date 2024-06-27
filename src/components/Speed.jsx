@@ -10,7 +10,7 @@ export const Speed = ({ onChange, value }) => {
 
   return (
     <div className={styles.wrapper}>
-        <div style={{color:"white"}}>Playback speed: {value}</div>
+        <div style={{color:"white"}}>Playback speed: {Math.round(value * 100)/100}</div>
       <input
         type="range"
         min="0"
