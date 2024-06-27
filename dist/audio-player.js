@@ -108,7 +108,7 @@ const dA = ({ children: I }) => /* @__PURE__ */ g.createElement("div", null, I),
   let M = (C - 0.5) * 50, Q = (a) => {
     I(a.target.value / 50 + 0.5);
   };
-  return /* @__PURE__ */ g.createElement("div", { className: V.wrapper }, /* @__PURE__ */ g.createElement("div", { style: { color: "white" } }, "Playback speed: ", C), /* @__PURE__ */ g.createElement(
+  return /* @__PURE__ */ g.createElement("div", { className: V.wrapper }, /* @__PURE__ */ g.createElement("div", { style: { color: "white" } }, "Playback speed: ", Math.round(C * 100) / 100), /* @__PURE__ */ g.createElement(
     "input",
     {
       type: "range",
