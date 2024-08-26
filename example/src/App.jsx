@@ -41,7 +41,7 @@ const App = () => {
       <button onClick={() => setpr(3.)}>Change Play Rate 3.</button>
       <button onClick={() => setpr(1.)}>Change Play Rate 1.</button>
       <Header />
-      <Player trackList={tracks} playRate={pr}/>
+      <Player trackList={tracks} playRate={pr} limiting={10.}/>
       <h1 className="title">Installation</h1>
       <SyntaxHighlighter language="bash" style={coldarkDark}>
         {`npm install @madzadev/audio-player`}

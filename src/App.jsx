@@ -75,6 +75,7 @@ const Player = ({
   showPlaylist = true,
   sortTracks = true,
   autoPlayNextTrack = true,
+  limiting = 0.,
   customColorScheme = {},
 }) => {
   const [audio, setAudio] = useState(null);
@@ -313,6 +314,10 @@ const Player = ({
 
   if(audio && isPlaying){
     audio.playbackRate = pr;
+  }
+
+  if(limiting > 0. && audio && isPlaying && slider > limiting) {
+    pause();
   }
 
   return (
